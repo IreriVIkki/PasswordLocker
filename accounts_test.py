@@ -14,4 +14,4 @@ class AccountsTest(unittest.TestCase):
         self.assertEqual(self.new_account.account_url,
                          'https://www.instagram.com/')
         self.assertEqual(self.new_account.email, 'wambsviki@gmail.com')
-        self.assertEqual(self.new_account.paa, '12345')
+        self.assertEqual(self.new_account.password, '12345')
