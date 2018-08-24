@@ -33,7 +33,17 @@ class TestUsers (unittest.TestCase):
         self.new_user.add_to_user(acc1, user)
         self.new_user.add_to_user(acc, user)
         self.assertEqual(len(user['Vikki Ireri']['accounts']), 2)
-        print(user)
+        # print(user)
+
+    def test_add_user_to_list(self):
+        user = self.new_user.save_user()
+        acc1 = self.new_account1.save_account()
+        acc = self.new_account.save_account()
+        self.new_user.add_to_user(acc1, user)
+        self.new_user.add_to_user(acc, user)
+        self.new_user.add_user_to_list(user)
+        self.assertEqual(len(User.users_list), 1)
+        print(User.users_list)
 
 
 if __name__ == '__main__':

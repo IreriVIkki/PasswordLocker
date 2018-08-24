@@ -21,3 +21,6 @@ class User():
     def add_to_user(self, account, user):
         name = self.first_name + ' ' + self.last_name
         user[name]['accounts'].append(account)
+
+    def add_user_to_list(self, user):
+        self.users_list.update(user)
