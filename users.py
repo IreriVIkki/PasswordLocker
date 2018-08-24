@@ -32,8 +32,8 @@ class User():
                 del users[key]
                 return users
 
-    # def delete_account(self, account, user):
-    #     name = self.first_name + ' ' + self.last_name
-    #     list1 = user[name]['accounts']
-    #     user[name]['accounts'] = [x for x in list1 if x['name'] != account]
-    #     return user
+    def delete_account(self, account, user):
+        name = self.first_name + ' ' + self.last_name
+        list1 = user[name]['accounts']
+        user[name]['accounts'] = [x for x in list1 if x['name'] != account]
+        return user
