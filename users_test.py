@@ -43,7 +43,28 @@ class TestUsers (unittest.TestCase):
         self.new_user.add_to_user(acc, user)
         self.new_user.add_user_to_list(user)
         self.assertEqual(len(User.users_list), 1)
-        print(User.users_list)
+        # print(User.users_list)
+
+    def test_delete_user_from_list(self):
+        user = self.new_user.save_user()
+        acc1 = self.new_account1.save_account()
+        acc = self.new_account.save_account()
+        self.new_user.add_to_user(acc1, user)
+        self.new_user.add_to_user(acc, user)
+        self.new_user.add_user_to_list(user)
+        self.new_user.delete_user_from_list()
+        self.assertEqual(len(User.users_list), 0)
+        # print(User.users_list)
+
+    # def test_delete_account(self):
+    #     user = self.new_user.save_user()
+    #     acc1 = self.new_account1.save_account()
+    #     acc = self.new_account.save_account()
+    #     self.new_user.add_to_user(acc1, user)
+    #     self.new_user.add_to_user(acc, user)
+    #     self.new_user.add_user_to_list(user)
+    #     self.new_user.delete_account('Facebook', user)
+    #     print(self.new_user.delete_account('Facebook', user))
 
 
 if __name__ == '__main__':

@@ -24,3 +24,16 @@ class User():
 
     def add_user_to_list(self, user):
         self.users_list.update(user)
+
+    def delete_user_from_list(self):
+        users = User.users_list
+        for key, value in users.items():
+            if key == self.first_name + ' ' + self.last_name:
+                del users[key]
+                return users
+
+    # def delete_account(self, account, user):
+    #     name = self.first_name + ' ' + self.last_name
+    #     list1 = user[name]['accounts']
+    #     user[name]['accounts'] = [x for x in list1 if x['name'] != account]
+    #     return user
