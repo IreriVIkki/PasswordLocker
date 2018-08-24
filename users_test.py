@@ -22,6 +22,9 @@ class TestUsers (unittest.TestCase):
         self.assertEqual(len(User.users_list), 1)
         print(User.users_list)
 
+    # def test_add_new_account(self):
+    #     self.assertEqual(len(User.users_list['Victor Ireri']['accounts']), 1)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,3 +1,6 @@
+from accounts import Account
+
+
 class User:
     users_list = {}
 
@@ -11,3 +14,7 @@ class User:
     def save_user(self):
         User.users_list[self.first_name + ' ' + self.last_name] = dict(
             first_name=self.first_name, last_name=self.last_name, email=self.email, password=self.password, accounts=dict())
+
+    # def add_new_account(self):
+    #     User.users_list[self.first_name + ' ' +
+    #                     self.last_name]['accounts'] = Account.account

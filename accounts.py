@@ -3,7 +3,7 @@ from users import User
 
 class Account:
 
-    account = ()
+    account = dict()
 
     def __init__(self, account_name, account_url, email, password):
         self.account_name = account_name
@@ -12,5 +12,6 @@ class Account:
         self.password = password
 
     def save_account(self):
-        account = self.account_name, self.account_url, self.email, self.password
-        # User.users_list[]
+        Account.account['name'] = self.account_name
+        Account.account['details'] = dict(
+            name=self.account_name, link_url=self.account_url, email=self.email, password=self.password)
