@@ -22,9 +22,10 @@ class TestUsers (unittest.TestCase):
         self.assertEqual(self.new_user.password, 'akisijui')
         self.assertEqual(self.new_user.accounts, [])
 
-    # def test_save_user(self):
-    #     self.new_user.save_user()
+    def test_save_user(self):
+        self.new_user.save_user()
         # self.new_account.save_account()
+        print(self.new_user.save_user())
 
     def test_add_to_user(self):
         user = self.new_user.save_user()
@@ -64,7 +65,7 @@ class TestUsers (unittest.TestCase):
         self.new_user.add_to_user(acc, user)
         self.new_user.add_user_to_list(user)
         self.new_user.delete_account('Facebook', user)
-        print(self.new_user.delete_account('Facebook', user))
+        # print(self.new_user.delete_account('Facebook', user))
 
 
 if __name__ == '__main__':
