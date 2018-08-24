@@ -18,7 +18,6 @@ class AccountsTest(unittest.TestCase):
 
     def test_save_account(self):
         self.new_account.save_account()
-        print(Account.account)
         self.assertEqual(
             Account.account['name'], 'Instagram')
         self.assertEqual(

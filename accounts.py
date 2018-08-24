@@ -1,6 +1,3 @@
-from users import User
-
-
 class Account:
 
     account = dict()
@@ -15,3 +12,6 @@ class Account:
         Account.account['name'] = self.account_name
         Account.account['details'] = dict(
             name=self.account_name, link_url=self.account_url, email=self.email, password=self.password)
+
+    # def add_to_user():
+    #     User.users_list[]

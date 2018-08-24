@@ -1,7 +1,7 @@
 from accounts import Account
 
 
-class User:
+class User():
     users_list = {}
 
     def __init__(self, firs_name, last_name, email, password, accounts):
@@ -15,6 +15,5 @@ class User:
         User.users_list[self.first_name + ' ' + self.last_name] = dict(
             first_name=self.first_name, last_name=self.last_name, email=self.email, password=self.password, accounts=dict())
 
-    # def add_new_account(self):
-    #     User.users_list[self.first_name + ' ' +
-    #                     self.last_name]['accounts'] = Account.account
+    def add_account(self, new_acc):
+        self.accounts = new_acc
