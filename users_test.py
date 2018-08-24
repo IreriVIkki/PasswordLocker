@@ -8,18 +8,19 @@ class TestUsers (unittest.TestCase):
 
     def setUp(self):
         self.new_user = User(
-            'Victor', 'Ireri', 'wambsviki@gmail.com', 'akisijui', [])
+            'Victor', 'Ireri', 'wambsviki@gmail.com', 'akisijui', {})
 
     def test_init(self):
-        self.assertEqual(self.new_user.firs_name, 'Victor')
+        self.assertEqual(self.new_user.first_name, 'Victor')
         self.assertEqual(self.new_user.last_name, 'Ireri')
         self.assertEqual(self.new_user.email, 'wambsviki@gmail.com')
         self.assertEqual(self.new_user.password, 'akisijui')
-        self.assertEqual(self.new_user.accounts, [])
+        self.assertEqual(self.new_user.accounts, {})
 
     def test_save_user(self):
         self.new_user.save_user()
         self.assertEqual(len(User.users_list), 1)
+        print(User.users_list)
 
 
 if __name__ == '__main__':

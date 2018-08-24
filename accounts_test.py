@@ -15,3 +15,7 @@ class AccountsTest(unittest.TestCase):
                          'https://www.instagram.com/')
         self.assertEqual(self.new_account.email, 'wambsviki@gmail.com')
         self.assertEqual(self.new_account.password, '12345')
+
+
+if __name__ == '__main__':
+    unittest.main()
