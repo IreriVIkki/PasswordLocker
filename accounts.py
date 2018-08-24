@@ -9,9 +9,10 @@ class Account:
         self.password = password
 
     def save_account(self):
-        Account.account['name'] = self.account_name
-        Account.account['details'] = dict(
+        # Account.account['name'] = self.account_name
+        Account.account = dict(
             name=self.account_name, link_url=self.account_url, email=self.email, password=self.password)
+        return Account.account
 
     # def add_to_user():
     #     User.users_list[]
