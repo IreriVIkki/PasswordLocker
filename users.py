@@ -64,9 +64,29 @@ def main():
             new_user_acc = User(first_name, last_name, email, password, [])
             new_user_acc.save_user()
 
-            print(f'your account {new_user_acc.first_name} has been created')
+            print(
+                f'Congratulations {new_user_acc.first_name}, your new account has been created')
+        else:
+            print('Your passwords did not match')
 
-            print(new_user_acc.save_user())
+    else:
+        print('please enter valid short codes from the list below: \n new-acc ---> to sign up \n login ---> to login to your account \n new-site ---> to add a new site credentials \n new-cred ---> to generate new credentials')
+        choice = input().lower()
+        if choice == 'new-acc':
+            first_name = input('Enter your first name:__')
+            last_name = input('Enter your last name:__')
+            email = input('Enter your email:__')
+            password = input('Enter your new password:__')
+            v_password = input('Confirm your new password:__')
+
+            if password == v_password:
+                new_user_acc = User(first_name, last_name, email, password, [])
+                new_user_acc.save_user()
+
+                print(
+                    f'Congratulations {new_user_acc.first_name}, your new account has been created')
+            else:
+                print('Your passwords did not match')
 
 
 if __name__ == '__main__':
