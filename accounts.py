@@ -18,6 +18,6 @@ class Account:
     def new_account(self, number):
         new_password = ''.join(random.choices(
             string.ascii_uppercase + string.digits, k=number))
-        Account.account = dict(name=self.account_name,
-                               link_url=self.account_url, password=new_password)
-        return Account.account
+        account = dict(name=self.account_name,
+                       link_url=self.account_url, password=new_password)
+        return account
