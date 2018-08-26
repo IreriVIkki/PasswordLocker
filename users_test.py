@@ -25,7 +25,7 @@ class TestUsers (unittest.TestCase):
     def test_save_user(self):
         self.new_user.save_user()
         # self.new_account.save_account()
-        print(self.new_user.save_user())
+        # print(self.new_user.save_user())
 
     def test_add_to_user(self):
         user = self.new_user.save_user()
@@ -34,7 +34,7 @@ class TestUsers (unittest.TestCase):
         self.new_user.add_to_user(acc1, user)
         self.new_user.add_to_user(acc, user)
         self.assertEqual(len(user['Vikki Ireri']['accounts']), 2)
-        print(user)
+        # print(user)
 
     def test_add_user_to_list(self):
         user = self.new_user.save_user()
@@ -66,6 +66,15 @@ class TestUsers (unittest.TestCase):
         self.new_user.add_user_to_list(user)
         self.new_user.delete_account('Facebook', user)
         # print(self.new_user.delete_account('Facebook', user))
+
+    def test_find_user(self):
+        user = self.new_user.save_user()
+        acc1 = self.new_account1.save_account()
+        acc = self.new_account.save_account()
+        self.new_user.add_to_user(acc1, user)
+        self.new_user.add_to_user(acc, user)
+        self.new_user.add_user_to_list(user)
+        self.new_user.find_user('Vikki Ireri')
 
 
 if __name__ == '__main__':

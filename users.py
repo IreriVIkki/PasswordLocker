@@ -42,51 +42,16 @@ class User():
         user[name]['accounts'] = [x for x in list1 if x['name'] != account]
         return user
 
+    def find_user(self, name):
+        users = User.users_list
+        for key, value in users.items():
+            if key == name:
+                print(value)
+                return (value)
+
 
 def main():
-    print('Oh, hi there, I\'m Deadpool!!. lets create a lastpass account for you. \n What is your name? \n ')
-    user_name = input()
-
-    print(f'So, {user_name} what would you like to do?')
-
-    print('use the following short-codes \n new-acc ---> to sign up \n login ---> to login to your account \n new-site ---> to add a new site credentials \n new-cred ---> to generate new credentials')
-
-    choice = input().lower()
-
-    if choice == 'new-acc':
-        first_name = input('Enter your first name:__')
-        last_name = input('Enter your last name:__')
-        email = input('Enter your email:__')
-        password = input('Enter your new password:__')
-        v_password = input('Confirm your new password:__')
-
-        if password == v_password:
-            new_user_acc = User(first_name, last_name, email, password, [])
-            new_user_acc.save_user()
-
-            print(
-                f'Congratulations {new_user_acc.first_name}, your new account has been created')
-        else:
-            print('Your passwords did not match')
-
-    else:
-        print('please enter valid short codes from the list below: \n new-acc ---> to sign up \n login ---> to login to your account \n new-site ---> to add a new site credentials \n new-cred ---> to generate new credentials')
-        choice = input().lower()
-        if choice == 'new-acc':
-            first_name = input('Enter your first name:__')
-            last_name = input('Enter your last name:__')
-            email = input('Enter your email:__')
-            password = input('Enter your new password:__')
-            v_password = input('Confirm your new password:__')
-
-            if password == v_password:
-                new_user_acc = User(first_name, last_name, email, password, [])
-                new_user_acc.save_user()
-
-                print(
-                    f'Congratulations {new_user_acc.first_name}, your new account has been created')
-            else:
-                print('Your passwords did not match')
+    pass
 
 
 if __name__ == '__main__':
