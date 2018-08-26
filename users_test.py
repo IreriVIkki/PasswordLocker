@@ -30,11 +30,11 @@ class TestUsers (unittest.TestCase):
     def test_add_to_user(self):
         user = self.new_user.save_user()
         acc1 = self.new_account1.save_account()
-        acc = self.new_account.save_account()
+        acc = self.new_account.new_account(8)
         self.new_user.add_to_user(acc1, user)
         self.new_user.add_to_user(acc, user)
         self.assertEqual(len(user['Vikki Ireri']['accounts']), 2)
-        # print(user)
+        print(user)
 
     def test_add_user_to_list(self):
         user = self.new_user.save_user()
