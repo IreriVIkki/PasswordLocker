@@ -41,10 +41,10 @@ class User():
             x for x in list1 if x['name'] != account]
         return user
 
-    def find_user(self, name):
+    def find_user_by_email(self, email):
         users = User.users_list
         for key, value in users.items():
-            if key == name:
+            if key == email:
                 # print(value)
                 return (value)
 
