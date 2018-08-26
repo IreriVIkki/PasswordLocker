@@ -61,11 +61,9 @@ def user_options():
     print('OH, hi there. Im deadpool. Just kidding. You wanna login or sign up \n\n     l: to login \n      s: to signup\n ')
     choice = input().lower()
 
-    if choice == 'l':
-        input('Enter your email:___')
-        input('Enter your password:___')
+    new_user = User('', '', '', '', [])
 
-    elif choice == 's':
+    if choice == 's':
         f_name = input('Enter your First Name:___')
         l_name = input('Enter your Last Name:___')
         email = input('Enter your Email:___')
@@ -76,10 +74,24 @@ def user_options():
         if password == c_password:
             new_user = User(f_name, l_name, email, password, [])
             user_acc = new_user.save_user()
+            new_user.add_user_to_list(user_acc)
 
             print('\n\nCongrats! your account has been created successfully.\n\n')
 
             print('What would you like to do now?\n\n')
+
+            print(User.users_list)
+
+            account_options(new_user, user_acc, full_name)
+
+    if choice == 'l':
+        user_email = input('Enter your email:___')
+        user_password = input('Enter your password:___')
+
+        user_acc = new_user.find_user_by_email(user_email)
+
+        if user_acc['password'] == user_password:
+            print(user_acc)
 
             account_options(new_user, user_acc, full_name)
 
