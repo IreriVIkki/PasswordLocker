@@ -46,12 +46,31 @@ class User():
         users = User.users_list
         for key, value in users.items():
             if key == name:
-                print(value)
+                # print(value)
                 return (value)
+
+    def find_account(self):
+        pass
+        # print(self.accounts)
 
 
 def main():
-    pass
+    print('OH, hi there. Im deadpool. Just kidding. You wanna login or sign up \n\n     l: to login \n      s: to signup\n ')
+    choice = input().lower()
+
+    if choice == 'l':
+        input('Enter your email:___')
+        input('Enter your password:___')
+
+    elif choice == 's':
+        f_name = input('Enter your First Name:___')
+        l_name = input('Enter your Last Name:___')
+        email = input('Enter your Email:___')
+        password = input('Enter your Password:___')
+        c_password = input('Confirm your Password:___')
+
+        if password == c_password:
+            user_acc = User(f_name, l_name, email, password, []).save_user()
 
 
 if __name__ == '__main__':
