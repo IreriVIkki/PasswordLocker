@@ -27,7 +27,7 @@ class TestUsers (unittest.TestCase):
         # self.new_account.save_account()
         print(self.new_user.save_user())
 
-    def test_add_to_user(self):
+    def test_add_acc_to_user(self):
         user = self.new_user.save_user()
         acc1 = self.new_account1.save_account()
         acc = self.new_account.new_account(8)

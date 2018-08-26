@@ -22,7 +22,7 @@ class User():
     def new_credentials(self):
         pass
 
-    def add_to_user(self, account, user):
+    def add_acc_to_user(self, account, user):
         name = self.first_name + ' ' + self.last_name
         user[name]['accounts'].append(account)
 
@@ -68,9 +68,44 @@ def main():
         email = input('Enter your Email:___')
         password = input('Enter your Password:___')
         c_password = input('Confirm your Password:___')
+        full_name = f'{f_name} {l_name}'
 
         if password == c_password:
-            user_acc = User(f_name, l_name, email, password, []).save_user()
+            new_user = User(f_name, l_name, email, password, [])
+            user_acc = new_user.save_user()
+
+            print(user_acc)
+
+            print('Congrats! your account has been created successfully.')
+
+            print('What would you like to do now?\n\n   s: save an existing account\n   c: create a new account\n   d: delete an account\n  ')
+
+            option = input('Enter your choice here:___')
+
+            if option == 's':
+                ac_name = input('Enter account name:___')
+                ac_url = input('Enter account url:___')
+                ac_email = input('Enter account email:___')
+                ac_password = input('Enter account password:___')
+
+                new_acc = Account(ac_name, ac_url, ac_email,
+                                  ac_password).save_account()
+
+                new_user.add_acc_to_user(new_acc, user_acc)
+
+            elif option == 'c':
+                cac_name = input('Enter account name:___')
+                cac_url = input('Enter account url:___')
+                cac_email = input('Enter account email:___')
+                cac_pass_length = int(input('Enter length of password'))
+
+                new_acc = Account(cac_name, cac_url,
+                                  cac_email, '').new_account(cac_pass_length)
+
+                new_user.add_acc_to_user(new_acc, user_acc)
+
+                print(user_acc[full_name]['accounts'])
+                print(new_acc)
 
 
 if __name__ == '__main__':

@@ -4,8 +4,6 @@ import random
 
 class Account:
 
-    account = dict()
-
     def __init__(self, account_name, account_url, email, password):
         self.account_name = account_name
         self.account_url = account_url
@@ -13,9 +11,9 @@ class Account:
         self.password = password
 
     def save_account(self):
-        Account.account = dict(
+        account = dict(
             name=self.account_name, link_url=self.account_url, email=self.email, password=self.password)
-        return Account.account
+        return account
 
     def new_account(self, number):
         new_password = ''.join(random.choices(
