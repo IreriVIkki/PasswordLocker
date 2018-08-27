@@ -1,4 +1,5 @@
 import unittest
+import pyperclip
 from users import User
 from accounts import Account
 
@@ -25,6 +26,11 @@ class AccountsTest(unittest.TestCase):
         self.assertEqual(
             account['email'], 'wambsviki@gmail.com')
         self.assertEqual(account['password'], '12345')
+
+    def test_copy_email(self):
+        acc = self.new_account.save_account()
+        email = self.new_account.copy_email(acc, 'email')
+        print(pyperclip.paste(email))
 
 
 if __name__ == '__main__':

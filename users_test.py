@@ -86,14 +86,6 @@ class TestUsers (unittest.TestCase):
         self.new_user.find_account_by_name(user, 'Facebook')
         # print(user['wambsviki@gmail.com']['accounts'])
 
-    def test_copy_credentials(self):
-        user = self.new_user.save_user()
-        acc1 = self.new_account1.save_account()
-        self.new_user.add_acc_to_user(acc1, user)
-        # copyied = self.new_user.copy_credential(
-        #     self.new_user, acc1, 'wambsviki@gmail.com')
-        print(self.new_user)
-
     def test_find_by_name(self):
         user = self.new_user.save_user()
         acc1 = self.new_account1.save_account()
