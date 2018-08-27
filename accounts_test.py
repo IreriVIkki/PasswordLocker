@@ -17,14 +17,14 @@ class AccountsTest(unittest.TestCase):
         self.assertEqual(self.new_account.password, '12345')
 
     def test_save_account(self):
-        self.new_account.save_account()
+        account = self.new_account.save_account()
         self.assertEqual(
-            Account.account['name'], 'Instagram')
+            account['name'], 'Instagram')
         self.assertEqual(
-            Account.account['details']['link_url'], 'https://www.instagram.com/')
+            account['link_url'], 'https://www.instagram.com/')
         self.assertEqual(
-            Account.account['details']['email'], 'wambsviki@gmail.com')
-        self.assertEqual(Account.account['details']['password'], '12345')
+            account['email'], 'wambsviki@gmail.com')
+        self.assertEqual(account['password'], '12345')
 
 
 if __name__ == '__main__':

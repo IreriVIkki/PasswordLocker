@@ -1,4 +1,5 @@
 #!/usr/bin/env python3.6
+import pyperclip
 from accounts import Account
 
 
@@ -19,9 +20,6 @@ class User():
             first_name=self.first_name, last_name=self.last_name, email=self.email, password=self.password, accounts=[])
         return user
 
-    def new_credentials(self):
-        pass
-
     def add_acc_to_user(self, account, user):
         user[self.email]['accounts'].append(account)
 
@@ -37,9 +35,13 @@ class User():
 
     def delete_account(self, account, user):
         list1 = user[self.email]['accounts']
-        user[self.email]['accounts'] = [
+        list1 = [
             x for x in list1 if x['name'] != account]
         return user
+
+    def copy_credential(self, user, name, item):
+        acc = user.find_account_by_name(user, name)
+        return pyperclip.copy(acc[name])
 
     def find_user_by_email(self, email):
         users = User.users_list
@@ -48,9 +50,11 @@ class User():
                 # print(value)
                 return (value)
 
-    def find_account(self):
-        pass
-        # print(self.accounts)
+    def find_account_by_name(self, user, name):
+        list2 = user[self.email]['accounts']
+        acc = [x for x in list2 if x['name'] == name]
+        print(acc[0])
+        return acc[0]
 
 
 def main():

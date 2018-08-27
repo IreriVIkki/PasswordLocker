@@ -24,8 +24,8 @@ class TestUsers (unittest.TestCase):
 
     def test_save_user(self):
         self.new_user.save_user()
-        # self.new_account.save_account()
-        print(self.new_user.save_user())
+        # self.new_acAccountcount.save_account()
+        # print(self.new_user.save_user())
 
     def test_add_acc_to_user(self):
         user = self.new_user.save_user()
@@ -55,7 +55,7 @@ class TestUsers (unittest.TestCase):
         self.new_user.add_user_to_list(user)
         self.new_user.delete_user_from_list()
         self.assertEqual(len(User.users_list), 1)
-        print(User.users_list)
+        # print(User.users_list)
 
     def test_delete_account(self):
         user = self.new_user.save_user()
@@ -65,7 +65,7 @@ class TestUsers (unittest.TestCase):
         self.new_user.add_acc_to_user(acc, user)
         self.new_user.add_user_to_list(user)
         self.new_user.delete_account('Facebook', user)
-        print(self.new_user.delete_account('Facebook', user))
+        # print(self.new_user.delete_account('Facebook', user))
 
     def test_find_user(self):
         user = self.new_user.save_user()
@@ -77,15 +77,27 @@ class TestUsers (unittest.TestCase):
         self.new_user.find_user_by_email('wambsviki@gmail.com')
 
     def test_find_account(self):
-
         user = self.new_user.save_user()
         acc1 = self.new_account1.save_account()
         acc = self.new_account.save_account()
         self.new_user.add_acc_to_user(acc1, user)
         self.new_user.add_acc_to_user(acc, user)
         self.new_user.add_user_to_list(user)
-        self.new_user.find_account()
-        print(user['wambsviki@gmail.com']['accounts'])
+        self.new_user.find_account_by_name(user, 'Facebook')
+        # print(user['wambsviki@gmail.com']['accounts'])
+
+    def test_copy_credentials(self):
+        user = self.new_user.save_user()
+        acc1 = self.new_account1.save_account()
+        self.new_user.add_acc_to_user(acc1, user)
+        # copyied = self.new_user.copy_credential(
+        #     self.new_user, acc1, 'wambsviki@gmail.com')
+        print(self.new_user)
+
+    def test_find_by_name(self):
+        user = self.new_user.save_user()
+        acc1 = self.new_account1.save_account()
+        self.new_user.find_account_by_name(acc1, 'Instagram')
 
 
 if __name__ == '__main__':
